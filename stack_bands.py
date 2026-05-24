@@ -1,3 +1,10 @@
+"""
+============================================================
+GLOF Risk Detection & Forecasting System
+Author : Mirthesh M | Kings Engineering College | Batch 2027
+============================================================
+"""
+
 # stack_bands.py — run this once per year to prepare your data
 import rasterio
 import numpy as np

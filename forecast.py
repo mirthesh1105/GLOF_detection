@@ -1,4 +1,12 @@
 """
+============================================================
+GLOF Risk Detection & Forecasting System
+Author : Mirthesh M | Kings Engineering College | Batch 2027
+Domain : Remote Sensing | Geospatial AI | Climate Risk Analysis
+============================================================
+"""
+
+"""
 Forecasts future lake area using LSTM (if ≥6 data points exist)
 or linear extrapolation (fallback for short series).
 

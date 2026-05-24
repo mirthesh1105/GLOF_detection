@@ -1,4 +1,12 @@
 """
+============================================================
+GLOF Risk Detection & Forecasting System
+Author : Mirthesh M | Kings Engineering College | Batch 2027
+Domain : Remote Sensing | Geospatial AI | Climate Risk Analysis
+============================================================
+"""
+
+"""
 Central config. Change study area, paths, and thresholds here.
 South Lhonak Lake coordinates used as default (the lake that
 actually burst in October 2023, killing 14 people in Sikkim).

@@ -1,4 +1,11 @@
 """
+============================================================
+GLOF Risk Detection & Forecasting System
+Author : Mirthesh M | Kings Engineering College | Batch 2027
+============================================================
+"""
+
+"""
 Builds a yearly time-series DataFrame of GLOF risk features.
 
 Each row = one year. The ML models (risk scorer + LSTM) are

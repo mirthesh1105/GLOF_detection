@@ -1,3 +1,16 @@
+"""
+============================================================
+GLOF Risk Detection & Forecasting System
+Author : Mirthesh M | Kings Engineering College | Batch 2027
+Domain : Remote Sensing | Geospatial AI | Climate Risk Analysis
+
+This module is part of an end-to-end framework for detecting,
+analyzing, and forecasting Glacial Lake Outburst Flood (GLOF)
+risks using multi-temporal Landsat imagery, terrain analysis,
+and machine learning techniques.
+============================================================
+"""
+
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 

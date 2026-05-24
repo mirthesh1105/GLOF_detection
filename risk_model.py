@@ -1,3 +1,10 @@
+"""
+============================================================
+GLOF Risk Detection & Forecasting System
+Author : Mirthesh M | Kings Engineering College | Batch 2027
+============================================================
+"""
+
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 

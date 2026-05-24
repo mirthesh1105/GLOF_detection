@@ -1,4 +1,12 @@
 """
+============================================================
+GLOF Risk Detection & Forecasting System
+Author : Mirthesh M | Kings Engineering College | Batch 2027
+Domain : Remote Sensing | Geospatial AI | Climate Risk Analysis
+============================================================
+"""
+
+"""
 Extracts glacier lake boundary and area from a Landsat GeoTIFF.
 
 Why NDWI + morphological cleaning instead of raw threshold?

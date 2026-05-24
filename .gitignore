@@ -1,0 +1,16 @@
+glof_env/
+venv/
+env/
+
+data/
+raw/
+output/
+
+__pycache__/
+
+*.tif
+*.h5
+*.pth
+*.pt
+*.dll
+*.zip

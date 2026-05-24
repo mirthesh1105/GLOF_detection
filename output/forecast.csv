@@ -1,0 +1,4 @@
+year,predicted_area_km2,method
+2025,17.4559,lstm
+2026,17.9997,lstm
+2027,16.3387,lstm

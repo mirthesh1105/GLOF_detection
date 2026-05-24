@@ -1,0 +1,8 @@
+rasterio
+numpy
+scipy
+scikit-learn
+scikit-image
+torch
+pandas
+matplotlib

@@ -1,4 +1,4 @@
-# 🌊 GLOF Risk Detection & Forecasting System
+#  GLOF Risk Detection & Forecasting System
 ### South Lhonak Lake, Sikkim, India
 
 ![Risk Analysis](output/glof_risk_analysis.png)
@@ -7,7 +7,7 @@
 
 ---
 
-## 🎯 Problem Statement
+##  Problem Statement
 
 Glacial Lake Outburst Floods (GLOFs) are among the most destructive and least-predicted natural disasters in high-altitude regions. Traditional monitoring requires expensive on-ground sensors. This project answers one question:
 
@@ -15,7 +15,7 @@ Glacial Lake Outburst Floods (GLOFs) are among the most destructive and least-pr
 
 ---
 
-## 🧠 What This System Does
+##  What This System Does
 
 | Stage | Method | Output |
 |-------|--------|--------|
@@ -28,35 +28,35 @@ This is **not** pixel classification. It is a **lake-level temporal hazard model
 
 ---
 
-## 📊 Results
+##  Results
 
 ### Historical Risk Scores (2016–2024)
 
 | Year | Lake Area (km²) | Growth Rate | Risk Score | Level | Key Signal |
 |------|----------------|-------------|------------|-------|------------|
-| 2016 | 2.52 | +3.93 km²/yr | 0.57 | 🟠 MEDIUM | Rapid expansion begins |
-| 2017 | 6.45 | +3.93 km²/yr | 0.47 | 🟠 MEDIUM | Sustained growth |
-| 2018 | 9.85 | +3.40 km²/yr | 0.51 | 🟠 MEDIUM | Continued expansion |
-| 2019 | 2.12 | −7.73 km²/yr | 0.27 | 🟢 LOW | Anomalous drainage |
-| 2020 | 9.15 | **+7.03 km²/yr** | **0.69** | 🟠 MEDIUM | ⚠️ Alarm year — fastest growth |
-| 2021 | 15.55 | **+6.41 km²/yr** | **0.67** | 🟠 MEDIUM | ⚠️ Ice melt detected (NDSI low) |
-| 2022 | 16.48 | +0.93 km²/yr | 0.61 | 🟠 MEDIUM | Peak area, high water intensity |
-| 2023 | 13.44 | −3.04 km²/yr | 0.38 | 🟢 LOW | **Lake burst Oct 2023** — already draining by Jan scan |
-| 2024 | 10.84 | −2.60 km²/yr | 0.52 | 🟠 MEDIUM | Refilling underway |
+| 2016 | 2.52 | +3.93 km²/yr | 0.57 |  MEDIUM | Rapid expansion begins |
+| 2017 | 6.45 | +3.93 km²/yr | 0.47 |  MEDIUM | Sustained growth |
+| 2018 | 9.85 | +3.40 km²/yr | 0.51 |  MEDIUM | Continued expansion |
+| 2019 | 2.12 | −7.73 km²/yr | 0.27 |  LOW | Anomalous drainage |
+| 2020 | 9.15 | **+7.03 km²/yr** | **0.69** |  MEDIUM | ⚠️ Alarm year — fastest growth |
+| 2021 | 15.55 | **+6.41 km²/yr** | **0.67** |  MEDIUM | ⚠️ Ice melt detected (NDSI low) |
+| 2022 | 16.48 | +0.93 km²/yr | 0.61 |  MEDIUM | Peak area, high water intensity |
+| 2023 | 13.44 | −3.04 km²/yr | 0.38 |  LOW | **Lake burst Oct 2023** — already draining by Jan scan |
+| 2024 | 10.84 | −2.60 km²/yr | 0.52 |  MEDIUM | Refilling underway |
 
 ### LSTM Forecast (2025–2027)
 
 | Year | Predicted Area | Uncertainty | Status |
 |------|---------------|-------------|--------|
-| 2025 | **17.46 km²** | ±12% | 🔴 Above critical threshold |
-| 2026 | **18.00 km²** | ±12% | 🔴 Peak refill — elevated risk |
-| 2027 | **16.34 km²** | ±12% | 🔴 Still above critical threshold |
+| 2025 | **17.46 km²** | ±12% |  Above critical threshold |
+| 2026 | **18.00 km²** | ±12% |  Peak refill — elevated risk |
+| 2027 | **16.34 km²** | ±12% |  Still above critical threshold |
 
-> ⚠️ All three forecast years exceed the **1.67 km² critical threshold** established from the pre-burst lake size. The system flags **2026 as the peak risk year**.
+>  All three forecast years exceed the **1.67 km² critical threshold** established from the pre-burst lake size. The system flags **2026 as the peak risk year**.
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 Multi-temporal Landsat-8 Imagery (2016–2024)
@@ -84,35 +84,49 @@ Multi-temporal Landsat-8 Imagery (2016–2024)
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 GLOF-risk-system/
 │
-├── lake_extractor.py          # NDWI extraction + morphological lake masking
-├── time_series_features.py    # Yearly feature table builder
-├── risk_model.py              # Weighted risk index + explanations
-├── forecast.py                # LSTM lake area forecasting
-├── pipeline.py                # Master orchestration — run this
-├── stack_bands.py             # Band stacker for raw Landsat TIF files
-├── requirements.txt
+├── src/
+│   ├── lake_extractor.py
+│   ├── time_series_features.py
+│   ├── risk_model.py
+│   ├── forecast.py
+│   ├── stack_bands.py
+│   └── pipeline.py
 │
 ├── data/
-│   ├── landsat/
-│   │   ├── landsat_2016.tif   # Stacked 4-band GeoTIFF per year
+│   ├── raw/
+│   │   ├── 2016/
+│   │   │   ├── LC08_..._B3.TIF
+│   │   │   ├── LC08_..._B4.TIF
+│   │   │   ├── LC08_..._B5.TIF
+│   │   │   └── LC08_..._B6.TIF
 │   │   └── ...
-│   └── STRM_DEM.tif           # SRTM 30m elevation model
+│   │
+│   ├── processed/
+│   │   ├── landsat_2016.tif
+│   │   └── ...
+│   │
+│   └── dem/
+│       └── SRTM_DEM.tif
 │
-└── output/
-    ├── timeseries_features.csv
-    ├── risk_scores.csv
-    ├── forecast.csv
-    └── glof_risk_analysis.png
+├── output/
+│   ├── forecast.csv
+│   ├── risk_scores.csv
+│   └── glof_risk_analysis.png
+│
+├── requirements.txt
+├── README.md
+├── .gitignore
+└── LICENSE
 ```
 
 ---
 
-## ⚙️ Setup & Usage
+##  Setup & Usage
 
 ### 1. Clone the repository
 ```bash
@@ -182,7 +196,7 @@ Composite score weighted by published GLOF factor importance:
 
 ---
 
-## 📦 Dependencies
+##  Dependencies
 
 ```
 rasterio>=1.4.0
@@ -202,7 +216,7 @@ pip install -r requirements.txt
 
 ---
 
-## 📂 Data Sources
+##  Data Sources
 
 | Source | Dataset | URL |
 |--------|---------|-----|
@@ -212,7 +226,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🔭 Future Improvements
+##  Future Improvements
 
 - [ ] Integrate Sentinel-2 (10m resolution) for finer lake boundary detection
 - [ ] Add MODIS LST temperature anomaly as a thermal risk feature
@@ -222,7 +236,7 @@ pip install -r requirements.txt
 
 ---
 
-## 👤 Author
+##  Author
 
 **Mirthesh M**
 B.E. Artificial Intelligence & Machine Learning
@@ -234,14 +248,14 @@ Kings Engineering College (GPA: 8.8/10)
 
 ---
 
-## 📄 License
+##  License
 
 All rights reserved © Mirthesh M, 2025.
 For academic or research use, contact the author.
 
 ---
 
-## 📚 References
+##  References
 
 - Emmer, A. & Vilímek, V. (2014). *Review Article: Lake and breach hazard assessment for moraine-dammed lakes.* Natural Hazards and Earth System Sciences.
 - Rounce, D.R. et al. (2017). *Quantifying hazard associated with outburst floods from moraine-dammed glacial lakes.* Earth Science Reviews.
